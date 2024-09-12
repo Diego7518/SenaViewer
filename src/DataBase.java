@@ -1,28 +1,29 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class Database {
+public class DataBase {
     private List<Movie> movies;
+    private List<Serie> series;
     private List<Book> books;
-    private List<Series> series;
     private List<Magazine> magazines;
 
-    public Database() {
-        movies = new ArrayList<>();
-        books = new ArrayList<>();
-        series = new ArrayList<>();
-        magazines = new ArrayList<>();
+    public DataBase() {
+        this.movies = new ArrayList<>();
+        this.series = new ArrayList<>();
+        this.books = new ArrayList<>();
+        this.magazines = new ArrayList<>();
     }
 
     public void addMovie(Movie movie) {
         movies.add(movie);
     }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public void addSerie(Serie serie) {
+        series.add(serie);
     }
 
-    public void addSeries(Series series) {
-        this.series.add(series);
+    public void addBook(Book book) {
+        books.add(book);
     }
 
     public void addMagazine(Magazine magazine) {
@@ -33,15 +34,16 @@ class Database {
         return movies;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Serie> getSeries() {
+        return series;
     }
 
-    public List<Series> getSeries() {
-        return series;
+    public List<Book> getBooks() {
+        return books;
     }
 
     public List<Magazine> getMagazines() {
         return magazines;
     }
 }
+

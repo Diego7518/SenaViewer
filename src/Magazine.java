@@ -1,25 +1,19 @@
-import java.util.*;
+import java.util.List;
 
-class Magazine extends Media {
-    private Date editionDate;
-    private String editorial;
-    private List<String> authors;
+public class Magazine extends Publication {
 
-    public Magazine(int id, String title, Date editionDate, String editorial) {
-        super(id, title);
-        this.editionDate = editionDate;
-        this.editorial = editorial;
-        this.authors = new ArrayList<>();
-    }
-
-    public void addAuthor(String author) {
-        authors.add(author);
+    public Magazine(int id, String title, String editionDate, String editorial, List<String> authors) {
+        super(id, title, editionDate, editorial, authors);
     }
 
     @Override
-    public void view(int minutes) {
-        this.viewed = true;
-        this.timeViewed = minutes;
-        System.out.println("Has leído la revista: " + title + " durante " + minutes + " minutos.");
+    public String toString() {
+        return "Magazine{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", editionDate='" + editionDate + '\'' +
+                ", editorial='" + editorial + '\'' +
+                ", authors=" + authors +
+                '}';
     }
 }

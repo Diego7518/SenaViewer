@@ -1,19 +1,12 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class Series extends Media {
-    private String genre;
-    private String creator;
-    private int duration;
-    private int year;
+public class Serie extends Film {
     private int sessionQuantity;
     private List<Chapter> chapters;
 
-    public Series(int id, String title, String genre, String creator, int duration, int year, int sessionQuantity) {
-        super(id, title);
-        this.genre = genre;
-        this.creator = creator;
-        this.duration = duration;
-        this.year = year;
+    public Serie(int id, String title, String genre, String creator, int duration, int year, int sessionQuantity) {
+        super(id, title, genre, creator, duration, year);
         this.sessionQuantity = sessionQuantity;
         this.chapters = new ArrayList<>();
     }
@@ -22,10 +15,23 @@ class Series extends Media {
         chapters.add(chapter);
     }
 
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
+
     @Override
-    public void view(int minutes) {
-        this.viewed = true;
-        this.timeViewed += minutes;
-        System.out.println("Has visto la serie: " + title + " durante " + minutes + " minutos.");
+    public String toString() {
+        return "Serie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", creator='" + creator + '\'' +
+                ", duration=" + duration +
+                ", year=" + year +
+                ", viewed=" + viewed +
+                ", timeViewed=" + timeViewed +
+                ", sessionQuantity=" + sessionQuantity +
+                ", chapters=" + chapters.size() +
+                '}';
     }
 }

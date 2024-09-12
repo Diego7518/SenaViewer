@@ -1,15 +1,25 @@
-public class Chapter extends Media {
-    private int duration;
-    private int year;
-    private int sessionNumber;
-    private int timeViewed;
+public class Film extends Media {
+    protected String genre;
+    protected String creator;
+    protected int duration;
+    protected int year;
+    protected int timeViewed;
 
-    public Chapter(int id, String title, int duration, int year, int sessionNumber) {
+    public Film(int id, String title, String genre, String creator, int duration, int year) {
         super(id, title);
+        this.genre = genre;
+        this.creator = creator;
         this.duration = duration;
         this.year = year;
-        this.sessionNumber = sessionNumber;
         this.timeViewed = 0;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getCreator() {
+        return creator;
     }
 
     public int getDuration() {
@@ -18,10 +28,6 @@ public class Chapter extends Media {
 
     public int getYear() {
         return year;
-    }
-
-    public int getSessionNumber() {
-        return sessionNumber;
     }
 
     public int getTimeViewed() {
@@ -34,15 +40,15 @@ public class Chapter extends Media {
 
     @Override
     public String toString() {
-        return "Chapter{" +
+        return "Film{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", creator='" + creator + '\'' +
                 ", duration=" + duration +
                 ", year=" + year +
-                ", sessionNumber=" + sessionNumber +
                 ", viewed=" + viewed +
                 ", timeViewed=" + timeViewed +
                 '}';
     }
 }
-

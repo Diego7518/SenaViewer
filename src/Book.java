@@ -1,27 +1,48 @@
-import java.util.*;
+import java.util.List;
 
-class Book extends Media {
-    private Date editionDate;
-    private String editorial;
+public class Book extends Publication {
     private String isbn;
-    private List<String> authors;
+    private boolean readed;
+    private int timeReaded;
 
-    public Book(int id, String title, Date editionDate, String editorial, String isbn) {
-        super(id, title);
-        this.editionDate = editionDate;
-        this.editorial = editorial;
+    public Book(int id, String title, String editionDate, String editorial, List<String> authors, String isbn) {
+        super(id, title, editionDate, editorial, authors);
         this.isbn = isbn;
-        this.authors = new ArrayList<>();
+        this.readed = false;
+        this.timeReaded = 0;
     }
 
-    public void addAuthor(String author) {
-        authors.add(author);
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public boolean isReaded() {
+        return readed;
+    }
+
+    public void setReaded(boolean readed) {
+        this.readed = readed;
+    }
+
+    public int getTimeReaded() {
+        return timeReaded;
+    }
+
+    public void setTimeReaded(int timeReaded) {
+        this.timeReaded = timeReaded;
     }
 
     @Override
-    public void view(int minutes) {
-        this.viewed = true;
-        this.timeViewed = minutes;
-        System.out.println("Has leído el libro: " + title + " durante " + minutes + " minutos.");
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", editionDate='" + editionDate + '\'' +
+                ", editorial='" + editorial + '\'' +
+                ", authors=" + authors +
+                ", isbn='" + isbn + '\'' +
+                ", readed=" + readed +
+                ", timeReaded=" + timeReaded +
+                '}';
     }
 }
